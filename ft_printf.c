@@ -6,54 +6,58 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 14:40:07 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/01/31 17:22:27 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/01 17:27:38 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //"cspdiuxX%"
 //"-0.*"
-
+//% [flags] [width] [.prec] [F|N|h|l|L] type_char
+// 0 for d, i, o, u, x, X
 #include "libftprintf.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_initflags(t_flags *flags)
 {
-	char	*ret;
-	size_t	i;
-
-	i = 0;
-	if (!s)
-		return (NULL);
-	if ((ret = (char *)malloc(len + 1)) == NULL)
-		return (NULL);
-	if (start >= ft_strlen(s))
-	{
-		ret[0] = '\0';
-		return (ret);
-	}
-	while (i < len && s[start + i])
-	{
-		ret[i] = s[start + i];
-		i++;
-	}
-	ret[i] = '\0';
-	return (ret);
+	flags->pad_size = 0;
+	flags->zero_pad = 0;
+	flags->left_align = 0;
+	flags->width = 0;
+	flags->precision=0;
 }
 
-int		ft_chr(const char *s, int c)
+t_flags	*ft_pfparse(char *str)
 {
+	t_flags flags;
 	int i;
 
 	i = 0;
-	while (s[i])
-	{
-		if (s[i] == c)
-		   return (1);
-		i++;	
-	}
-	return (0);
+	
+	return (flags);
 }
 
-void	ft_pfdisplay(char *str, va_list ap)
+void	ft_displayvar(char *str, va_list ap)
+{
+	t_flags flags;
+	int		lenstr;
+
+	lenstr = ft_strlen(str);
+	flags = ft_pfparse(str);
+	if (str[lenstr-1] == 'd' || str[lenstr-1] == 'i')
+
+	if (str[lenstr-1] == 'x' || str[lenstr-1] == 'X')
+
+	if (str[lenstr-1] == 'u')
+
+	if (str[lenstr-1] == 's')
+
+	if (str[lenstr-1] == 'c')
+		
+	if (str[lenstr-1] == 'p')
+
+	free(str);
+}
+
+void	ft_pfloop(char *str, va_list ap)
 {
 	unsigned int i;
 	unsigned int j;
@@ -70,7 +74,7 @@ void	ft_pfdisplay(char *str, va_list ap)
 			j = ++i;
 			while (!ft_chr(conv, str[i]))
 				i++;
-			ft_substr(str, j, i-j);
+			ft_displayvar(ft_substr(str, j, i-j), ap);
 		}
 	}
 }

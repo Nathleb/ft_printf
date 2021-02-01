@@ -1,40 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert.c                                       :+:      :+:    :+:   */
+/*   ft_display.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 15:59:49 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/01/30 22:12:04 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/01 17:14:21 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-
-int		ft_min(int a, int b)
-{
-	if ( a < b)
-		return (a);
-	return (b);
-}
-
-int		ft_strlen(char *s)
-{
-	int i;
-
-	i = 0;
-	while(s[i])
-		i++;
-	return (i);
-}
 
 void	ft_putpad(t_flags flags)
 {
 	char c;
 
 	c = ' ';
-	if (flags.zero_pad)
+	if (flags.zero_pad && !flags.left_align)
 		c = '0';
 	while(flags.pad_size-- > 0)
 	{

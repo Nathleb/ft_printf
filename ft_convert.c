@@ -6,37 +6,11 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 16:22:54 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/01/30 23:08:30 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/01 16:30:23 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-
-char	*ft_strcpy(char *dest, char *src)
-{
-	int i;
-
-	i = 0;
-	while (src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	free(src);
-	return (dest);
-}
-
-int		ft_strlen(char *str)
-{
-	int count;
-
-	count = 0;
-	while (str[count])
-		count++;
-	return (count);
-}
+#include "libftprintf.h"
 
 char	*ft_utoa_base(unsigned int nbr, char *base, char *returned)
 {
@@ -98,13 +72,4 @@ char	*ft_itoa_base(int nbr, char *base, char *returned)
 	temp[retsize] = base[nb % size];
 	temp[retsize + 1] = '\0';
 	return (temp);
-}
-
-int main()
-{
-	char *returned = malloc(1);
-	char *result = ft_itoa_base(321321,"0123456789",returned);
-	printf("%s", result);
-	free(result);
-
 }
