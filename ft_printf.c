@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 14:40:07 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/01 17:27:38 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/01 19:06:34 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ t_flags	*ft_pfparse(char *str)
 	int i;
 
 	i = 0;
+	flags = ft_initflags(&flags);
+
 	
 	return (flags);
 }
@@ -42,18 +44,8 @@ void	ft_displayvar(char *str, va_list ap)
 
 	lenstr = ft_strlen(str);
 	flags = ft_pfparse(str);
-	if (str[lenstr-1] == 'd' || str[lenstr-1] == 'i')
-
-	if (str[lenstr-1] == 'x' || str[lenstr-1] == 'X')
-
-	if (str[lenstr-1] == 'u')
-
 	if (str[lenstr-1] == 's')
-
-	if (str[lenstr-1] == 'c')
-		
-	if (str[lenstr-1] == 'p')
-
+		ft_display_string(flags, str);
 	free(str);
 }
 
