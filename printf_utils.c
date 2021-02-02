@@ -6,9 +6,11 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 01:43:03 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/02 01:54:45 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/02 02:05:41 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libftprintf.h"
 
 char	*ft_strcpy(char *dest, char *src)
 {
@@ -24,9 +26,9 @@ char	*ft_strcpy(char *dest, char *src)
 	return (dest);
 }
 
-int		ft_strlen(char *str)
+unsigned int		ft_strlen(char *str)
 {
-	int count;
+	unsigned int count;
 
 	count = 0;
 	while (str[count])
@@ -41,7 +43,7 @@ int		ft_min(int a, int b)
 	return (b);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char *s, unsigned int start, size_t len)
 {
 	char	*ret;
 	size_t	i;

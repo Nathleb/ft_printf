@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 01:45:48 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/02 01:57:45 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/02 02:09:34 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_litoa_base(long int nb, char *base, char *returned)
 	long int	retsize;
 	
 	size = ft_strlen(base);
-	neg_initial(&nb, returned);
+	returned = neg_initial(&nb, returned);
 	if (nb >= size)
 		if (!(returned = ft_litoa_base((nb / size), base, returned)))
 			return (NULL);
