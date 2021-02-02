@@ -6,11 +6,11 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 01:43:03 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/02 01:48:02 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/02 01:54:45 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy_freesrc(char *dest, char *src)
+char	*ft_strcpy(char *dest, char *src)
 {
 	int i;
 
@@ -21,7 +21,6 @@ char	*ft_strcpy_freesrc(char *dest, char *src)
 		i++;
 	}
 	dest[i] = '\0';
-	free(src);
 	return (dest);
 }
 
