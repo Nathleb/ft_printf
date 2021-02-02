@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/01 16:23:16 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/01 16:25:59 by nle-biha         ###   ########.fr       */
+/*   Created: 2021/02/02 01:43:03 by nle-biha          #+#    #+#             */
+/*   Updated: 2021/02/02 01:44:11 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (ret);
 }
 
-int		ft_chr(const char *s, int c)
+int		ft_isin(const char *s, int c)
 {
 	int i;
 
