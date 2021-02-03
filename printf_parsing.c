@@ -6,26 +6,11 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 17:35:51 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/02 23:38:27 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/03 19:53:57 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-
-
-//"cspdiuxX%"
-//"-0.*"
-//% [flags] [width] [.prec] [F|N|h|l|L] type_char
-// 0 for d, i, o, u, x, X
-/*typedef struct	s_flags
-{
-	t_bool	zero_pad;
-	t_bool	left_align;
-	int		width;
-	int		precision;
-	char	conv_type;
-}				t_flags;
-*/
 
 int	ft_atoi(const char *nptr)
 {
@@ -111,31 +96,9 @@ t_flags	printf_parse(char *str, va_list ap)
 	str = parse_width(str, &flags, ap);
 	str = parse_precision(str, &flags, ap);
 	flags.conv_type = *str;
+	if (ft_isin("cspdiuxX%", flags.conv_type))
+		return (flags);
+	flags.conv_type = '0';
 	return (flags);
+	
 }
-
-void test_valist(char *str, ...)
-{
-	va_list ap;
-
-	va_start(ap, str);
-	printf("init");
-	t_flags flags = printf_parse(str, ap);
-	printf("0pad %d\n", flags.zero_pad);
-	printf("lalign %d\n", flags.left_align);
-	printf("width %d\n", flags.width);
-	printf("precision %d\n", flags.precision);
-	printf("conv_type %c\n", flags.conv_type);
-	va_end(ap);
-}
-
-int	main()
-{
-	char *str = "0-*.*d";
-	int i2 = 2;
-	int i3 = 3;
-	int i4 = 4;
-	test_valist(str, i2 ,i3,i4);
-	return (0);
-}
-
