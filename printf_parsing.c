@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 17:35:51 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/04 02:37:30 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/05 21:47:42 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,12 @@ char	*parse_precision(char *str, t_flags *flags, va_list ap)
 	if (*str == '.')
 	{
 		str++;
-		if (*str >= '1' && *str <= '9')
+		if (*str >= '0' && *str <= '9')
 			flags->precision = ft_atoi(str);
 		else if (*str == '*')
 			flags->precision = va_arg(ap, int);
+		else
+			flags->precision = 0;
 		while (*str >= '0' && *str <= '9')
 			str++;
 	}

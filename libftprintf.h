@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 01:44:28 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/03 21:17:54 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/05 21:17:48 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct	s_flags
 	char	conv_type;
 }				t_flags;
 
+int				ft_display_char(t_flags flags, char c);
 int				ft_atoi(const char *nptr);
 t_flags			printf_parse(char *str, va_list ap);
 int				ft_isin(const char *s, int c);
@@ -33,6 +34,7 @@ char			*ft_substr(const char *s, unsigned int start, size_t len);
 int				ft_min(int a, int b);
 unsigned int	ft_strlen(const char *str);
 char			*ft_strcpy(char *dest, char *src);
+int				ft_display_string(t_flags flags, char *s);
 char    		*ft_litoa_base(long int nbr, char *base, char *returned);
 #endif
 
