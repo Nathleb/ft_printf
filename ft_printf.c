@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 19:57:18 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/05 22:04:54 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/05 22:43:07 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ int ft_pfdisplay(char *str, va_list ap)
 		ret += ft_display_char(flags, va_arg(ap, int));
 	if (flags.conv_type == '%')
 		ret += write(1,"%",1);
+	if (flags.conv_type == 'x' || flags.conv_type == 'X')
+		ret += ft_display_unsignedint(flags, va_arg(ap, unsigned int),"0123456789abcdef");
+	if (flags.conv_type == 'u')
+		ret += ft_display_unsignedint(flags, va_arg(ap, unsigned int),"0123456789");
 	return (ret);
 }
 
@@ -61,8 +65,9 @@ int main(int argc, char **argv)
 	(void)argc;
 	char c = 'c';
 	char *s = "0123456789";
-	printf("\n%d\n",ft_printf(argv[1],s,s));
+	unsigned int e = 4543543;
+	printf("\n%d\n",ft_printf(argv[1],e,e));
 	printf("\n\n");
-	printf("\n%d\n",printf(argv[1],s,s));
+	printf("\n%d\n",printf(argv[1],e,e));
 	return 0;
 }
