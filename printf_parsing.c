@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 17:35:51 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/05 21:47:42 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/06 17:46:36 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,16 +62,16 @@ char	*parse_precision(char *str, t_flags *flags, va_list ap)
 	{
 		str++;
 		if (*str >= '0' && *str <= '9')
-			flags->precision = ft_atoi(str);
+			flags->prec = ft_atoi(str);
 		else if (*str == '*')
-			flags->precision = va_arg(ap, int);
+			flags->prec = va_arg(ap, int);
 		else
-			flags->precision = 0;
+			flags->prec = 0;
 		while (*str >= '0' && *str <= '9')
 			str++;
 	}
 	else
-		flags->precision = -1;
+		flags->prec = -1;
 	return (str);
 }
 
@@ -80,9 +80,9 @@ char	*parse_flags(char *str, t_flags *flags)
 	while (*str == '0' || *str == '-')
 	{
 		if (*str == '0')
-			flags->zero_pad = 1;
+			flags->zero = 1;
 		else
-			flags->left_align = 1;
+			flags->left = 1;
 		str++;
 	}
 	return (str);
@@ -92,8 +92,8 @@ t_flags	printf_parse(char *str, va_list ap)
 {
 	t_flags flags;
 
-	flags.zero_pad = 0;
-	flags.left_align = 0;
+	flags.zero = 0;
+	flags.left = 0;
 	str = parse_flags(str, &flags);
 	str = parse_width(str, &flags, ap);
 	str = parse_precision(str, &flags, ap);
@@ -102,5 +102,4 @@ t_flags	printf_parse(char *str, va_list ap)
 		return (flags);
 	flags.conv_type = '0';
 	return (flags);
-	
 }

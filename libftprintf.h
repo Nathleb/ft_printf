@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 01:44:28 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/05 22:44:25 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/06 18:18:21 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,16 @@
 typedef int t_bool;
 typedef struct	s_flags
 {
-	t_bool	zero_pad;
-	t_bool	left_align;
+	t_bool	zero;
+	t_bool	left;
 	int		width;
-	int		precision;
+	int		prec;
 	char	conv_type;
 }				t_flags;
 
-int	ft_display_unsignedint(t_flags flags, unsigned int nb, char *base);
+int				ft_display_pointer(t_flags flags, unsigned int nb, char *base);
+int 			ft_max(int a, int b);
+int				ft_display_unsignedint(t_flags flags, unsigned int nb, char *base);
 int				ft_display_char(t_flags flags, char c);
 int				ft_atoi(const char *nptr);
 t_flags			printf_parse(char *str, va_list ap);
