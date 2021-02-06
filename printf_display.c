@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 20:56:22 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/06 19:22:40 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/06 21:48:42 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,14 @@ int	ft_display_unsignedint(t_flags flags, unsigned int nb, char *base)
 {
 	int ret;
 	char *s;
-	unsigned int len;
+	int len;
 	int prec;
 
 	prec = flags.prec;
 	ret = 0;
 	if ((s = malloc(1)) && !(s[0] = '\0') && (s = ft_litoa_base(nb, base, s)))
 	{
-		len = ft_strlen(s);
+		len = (int)ft_strlen(s);
 		flags.prec = (flags.prec == -1) ? 0 : flags.prec;
 		flags.zero = (flags.prec > len || flags.prec <= 0) ? 0 : flags.zero;
 		if (!flags.left)
@@ -90,7 +90,7 @@ int	ft_display_pointer(t_flags flags, unsigned int nb, char *base)
 {
 	int ret;
 	char *s;
-	unsigned int len;
+	int len;
 	int prec;
 
 	if (flags.prec == -1 && (flags.prec = flags.width) == flags.width)
@@ -100,7 +100,7 @@ int	ft_display_pointer(t_flags flags, unsigned int nb, char *base)
 	ret = 0;
 	if ((s = malloc(1)) && !(s[0] = '\0') && (s = ft_litoa_base(nb, base, s)))
 	{
-		len = ft_strlen(s) + 2;
+		len = (int)ft_strlen(s) + 2;
 		flags.zero = (flags.prec > len || flags.prec <= 0) ? 0 : flags.zero;
 		ret += (!flags.left) ? padnbr(flags, flags.width - ft_max(len, flags.prec)) : 0; 
 		ret += write(1, "0x", 2); 

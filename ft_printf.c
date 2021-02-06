@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 19:57:18 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/06 18:17:35 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/06 21:44:32 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int ft_pfdisplay(char *str, va_list ap)
 	if (flags.conv_type == 'u')
 		ret += ft_display_unsignedint(flags, va_arg(ap, unsigned int),"0123456789");
 	if (flags.conv_type == 'p')
-		ret += ft_display_pointer(flags, (unsigned int)va_arg(ap, void *),"0123456789abcdef");
+		ret += ft_display_pointer(flags, (unsigned long int)va_arg(ap, void *),"0123456789abcdef");
 	return (ret);
 }
 
@@ -60,16 +60,4 @@ int	ft_printf(const char *str, ...)
 	}
 	va_end(ap);
 	return (ret);
-}
-
-int main(int argc, char **argv)
-{
-	(void)argc;
-	char c = 'c';
-	char *s = "0123456789";
-	unsigned int e = 4543543;
-	printf("\n%d\n",ft_printf(argv[1],s,s));
-	printf("\n\n");
-	printf("\n%d\n",printf(argv[1],s,s));
-	return 0;
 }
