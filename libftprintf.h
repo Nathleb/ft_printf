@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 01:44:28 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/06 18:18:21 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/07 01:07:54 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct	s_flags
 	char	conv_type;
 }				t_flags;
 
+int 			ft_printf(const char *str, ...);
 int				ft_display_pointer(t_flags flags, unsigned int nb, char *base);
 int 			ft_max(int a, int b);
 int				ft_display_unsignedint(t_flags flags, unsigned int nb, char *base);

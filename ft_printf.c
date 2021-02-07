@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 19:57:18 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/06 21:44:32 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/07 01:23:17 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ int	ft_printf(const char *str, ...)
 	i = 0;
 	while (str[i])
 	{
-		while (str[i] != '%' && ret++ && str[i])
-			write(1, &str[i++], 1);
+		while (str[i] != '%' && str[i])
+			ret += write(1, &str[i++], 1);
 		if (str[i] == '%')
 		{
 			j = ++i;
