@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 20:56:22 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/06 21:48:42 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/07 16:10:39 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,18 @@ int	ft_display_string(t_flags flags, char *s)
 	unsigned int len;
 
 	ret = 0;
-	len = ft_strlen(s);
-	if (flags.prec == -1)
-		flags.prec = len;
-	pad_size = flags.width - ft_min(flags.prec, len);
-	if (!flags.left)
-		ret += ft_putpad(flags, pad_size);
-	ret += write(1, s, ft_min(flags.prec, len));
-	if (flags.left)
-		ret += ft_putpad(flags, pad_size);
+	if (s)
+	{
+		len = ft_strlen(s);
+		if (flags.prec == -1)
+			flags.prec = len;
+		pad_size = flags.width - ft_min(flags.prec, len);
+		if (!flags.left)
+			ret += ft_putpad(flags, pad_size);
+		ret += write(1, s, ft_min(flags.prec, len));
+		if (flags.left)
+			ret += ft_putpad(flags, pad_size);
+	}
 	return (ret);
 }
 
