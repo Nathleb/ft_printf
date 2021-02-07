@@ -6,39 +6,11 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 17:35:51 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/06 17:46:36 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/07 16:25:52 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-
-int	ft_atoi(const char *nptr)
-{
-	long long int	sign;
-	long long int	ret;
-	unsigned int	i;
-
-	i = 0;
-	sign = 1;
-	ret = 0;
-	while (nptr[i] == '\t' || nptr[i] == '\n' || nptr[i] == '\r' ||
-			nptr[i] == '\v' || nptr[i] == '\f' || nptr[i] == ' ')
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
-	{
-		if (nptr[i] == '-')
-			sign = -1;
-		i++;
-	}
-	while (nptr[i] && nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		ret = ret * 10 + (nptr[i] - '0');
-		i++;
-	}
-	ret *= sign;
-	return ((int)ret);
-}
-
 
 char	*parse_width(char *str, t_flags *flags, va_list ap)
 {

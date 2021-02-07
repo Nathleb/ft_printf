@@ -1,48 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf_utils.c                                     :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/02 01:43:03 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/07 16:25:31 by nle-biha         ###   ########.fr       */
+/*   Created: 2021/02/07 16:22:23 by nle-biha          #+#    #+#             */
+/*   Updated: 2021/02/07 16:24:18 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
-	int i;
+	char	*ret;
+	size_t	i;
 
 	i = 0;
-	while (src[i])
+	if (!s)
+		return (NULL);
+	if ((ret = (char *)malloc(len + 1)) == NULL)
+		return (NULL);
+	if (start >= ft_strlen(s))
 	{
-		dest[i] = src[i];
+		ret[0] = '\0';
+		return (ret);
+	}
+	while (i < len && s[start + i])
+	{
+		ret[i] = s[start + i];
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-int		ft_min(int a, int b)
-{
-	if ( a < b)
-		return (a);
-	return (b);
-}
-
-int		ft_isin(const char *s, int c)
-{
-	int i;
-
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == c)
-		   return (1);
-		i++;
-	}
-	return (0);
+	ret[i] = '\0';
+	return (ret);
 }

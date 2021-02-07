@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 01:44:28 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/07 01:07:54 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/07 16:26:52 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include "libft/libft.h"
 typedef int t_bool;
 typedef struct	s_flags
 {
@@ -31,12 +32,9 @@ int				ft_display_pointer(t_flags flags, unsigned int nb, char *base);
 int 			ft_max(int a, int b);
 int				ft_display_unsignedint(t_flags flags, unsigned int nb, char *base);
 int				ft_display_char(t_flags flags, char c);
-int				ft_atoi(const char *nptr);
 t_flags			printf_parse(char *str, va_list ap);
 int				ft_isin(const char *s, int c);
-char			*ft_substr(const char *s, unsigned int start, size_t len);
 int				ft_min(int a, int b);
-unsigned int	ft_strlen(const char *str);
 char			*ft_strcpy(char *dest, char *src);
 int				ft_display_string(t_flags flags, char *s);
 char    		*ft_litoa_base(long int nbr, char *base, char *returned);
