@@ -46,3 +46,10 @@ int		ft_isin(const char *s, int c)
 	}
 	return (0);
 }
+
+int ft_max(int a, int b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
