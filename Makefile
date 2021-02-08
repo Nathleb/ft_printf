@@ -29,7 +29,7 @@ OBJS = $(SRCS:.c=.o)
 
 ${NAME}: ${OBJS}
 	@make all -C libft
-	ar rcs ${NAME} ${OBJS} libft/*.o
+	ar rcs ${NAME} ${OBJS} libft/ft_*.o
 	ranlib ${NAME}
 
 

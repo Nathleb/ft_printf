@@ -12,7 +12,7 @@
 
 #include "libftprintf.h"
 
-int	ft_putspace(t_flags flags, int pad_size)
+int	ft_putspace(int pad_size)
 {
 	char c;
 	int ret;
@@ -32,21 +32,16 @@ int	ft_display_string(t_flags flags, char *s)
 
 	ret = 0;
 	if (!s)
-	{
-		len = (flags.prec >= 0 && flags.prec <= 5) ? 0 : 6;
-		ret += ft_putspace(flags, flags.width - len);
-		ret += write(1, "(null)", len);
-		return (ret);
-	}
-		len = ft_strlen(s);
-		if (flags.prec == -1)
-			flags.prec = len;
-		pad_size = flags.width - ft_min(flags.prec, len);
-		if (!flags.left)
-			ret += ft_putspace(flags, pad_size);
-		ret += write(1, s, ft_min(flags.prec, len));
-		if (flags.left)
-			ret += ft_putspace(flags, pad_size);
+		s = "(null)";
+	len = ft_strlen(s);
+	if (flags.prec == -1)
+		flags.prec = len;
+	pad_size = flags.width - ft_min(flags.prec, len);
+	if (!flags.left)
+		ret += ft_putspace(pad_size);
+	ret += write(1, s, ft_min(flags.prec, len));
+	if (flags.left)
+		ret += ft_putspace(pad_size);
 	return (ret);
 }
 
@@ -128,9 +123,9 @@ int	ft_display_char(t_flags flags, char c)
 		flags.prec = 1;
 	pad_size = flags.width - ft_min(flags.prec, 1);
 	if (flags.left)
-		ret += ft_putspace(flags, pad_size);
+		ret += ft_putspace(pad_size);
 	ret += write(1, &c, ft_min(flags.prec, 1));
 	if (!flags.left)
-		ret += ft_putspace(flags,pad_size);
+		ret += ft_putspace(pad_size);
 	return (ret);
 }
