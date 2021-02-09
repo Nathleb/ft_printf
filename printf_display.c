@@ -71,9 +71,9 @@ int	ft_display_unsignedint(t_flags flags, unsigned int nb, char *base)
 	ret = 0;
 	if ((s = malloc(1)) && !(s[0] = '\0') && (s = ft_litoa_base(nb, base, s)))
 	{
-		len = (int)ft_strlen(s);
+		len = (nb > 0) ? (int)ft_strlen(s) : 0;
 		flags.prec = (flags.prec == -1) ? 0 : flags.prec;
-		flags.zero = (flags.prec > len || flags.prec <= 0) ? 0 : flags.zero;
+		flags.zero = (flags.prec > 0) ? 0 : flags.zero;
 		if (!flags.left)
 			ret += padnbr(flags, flags.width - ft_max(len, flags.prec));
 		while (--prec >= (int)len)
