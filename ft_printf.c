@@ -26,8 +26,10 @@ int ft_pfdisplay(char *str, va_list ap)
 		ret += ft_display_char(flags, va_arg(ap, int));
 	if (flags.conv_type == '%')
 		ret += write(1,"%",1);
-	if (flags.conv_type == 'x' || flags.conv_type == 'X')
+	if (flags.conv_type == 'x')
 		ret += ft_display_unsignedint(flags, va_arg(ap, unsigned int),"0123456789abcdef");
+	if ( flags.conv_type == 'X')
+		ret += ft_display_unsignedint(flags, va_arg(ap, unsigned int),"0123456789ABCDEF");
 	if (flags.conv_type == 'u')
 		ret += ft_display_unsignedint(flags, va_arg(ap, unsigned int),"0123456789");
 	if (flags.conv_type == 'p')
