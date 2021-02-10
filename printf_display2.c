@@ -53,7 +53,7 @@ int	ft_display_unsignedint(t_flags flags, unsigned int nb, char *base)
 	return (ret);
 }
 
-int	ft_display_pointer(t_flags flags, unsigned int nb, char *base)
+int	ft_display_pointer(t_flags flags, unsigned long int nb, char *base)
 {
 	int ret;
 	char *s;
@@ -61,6 +61,7 @@ int	ft_display_pointer(t_flags flags, unsigned int nb, char *base)
 	int prec;
 
 	ret = 0;
+	nb = (unsigned int) nb;
 	prec = flags.prec;
 	if (nb == 0 && flags.prec == 0)
 	{
