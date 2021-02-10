@@ -51,9 +51,9 @@ char	*ft_litoa_base(long int nb, char *base, char *returned)
 
 char    		*ft_ulitoa_base(unsigned long int nb, char *base, char *returned)
 {
-	long int	size;
+	unsigned long int	size;
 	char		*temp;
-	long int	retsize;
+	unsigned long int	retsize;
 
 	size = ft_strlen(base);
 	if (nb >= size)
