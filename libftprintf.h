@@ -38,5 +38,6 @@ int				ft_min(int a, int b);
 char			*ft_strcpy(char *dest, char *src);
 int				ft_display_string(t_flags flags, char *s);
 char    		*ft_litoa_base(long int nbr, char *base, char *returned);
+char    		*ft_ulitoa_base(unsigned long int nbr, char *base, char *returned);
 #endif
 

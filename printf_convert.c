@@ -48,3 +48,26 @@ char	*ft_litoa_base(long int nb, char *base, char *returned)
 	temp[retsize + 1] = '\0';
 	return (temp);
 }
+
+char    		*ft_ulitoa_base(unsigned long int nb, char *base, char *returned)
+{
+	long int	size;
+	char		*temp;
+	long int	retsize;
+
+	size = ft_strlen(base);
+	if (nb >= size)
+		if (!(returned = ft_litoa_base((nb / size), base, returned)))
+			return (NULL);
+	retsize = ft_strlen(returned);
+	if (!(temp = (char *)malloc((retsize + 2) * sizeof(char))))
+	{
+		free(returned);
+		return (NULL);
+	}
+	ft_strcpy(temp, returned);
+	free(returned);
+	temp[retsize] = base[nb % size];
+	temp[retsize + 1] = '\0';
+	return (temp);
+}

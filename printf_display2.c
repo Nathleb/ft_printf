@@ -61,7 +61,6 @@ int	ft_display_pointer(t_flags flags, unsigned long int nb, char *base)
 	int prec;
 
 	ret = 0;
-	nb = (unsigned int) nb;
 	prec = flags.prec;
 	if (nb == 0 && flags.prec == 0)
 	{
@@ -70,7 +69,7 @@ int	ft_display_pointer(t_flags flags, unsigned long int nb, char *base)
 		ret += (flags.left) ? padnbr(flags, flags.width - 2) : 0;
 		return (ret);
 	}
-	if ((s = malloc(1)) && !(s[0] = '\0') && (s = ft_litoa_base(nb, base, s)))
+	if ((s = malloc(1)) && !(s[0] = '\0') && (s = ft_ulitoa_base(nb, base, s)))
 	{
 		len = (int)ft_strlen(s) + 2;
 		ret += (!flags.left) ? padnbr(flags, flags.width - ft_max(len, flags.prec)) : 0;
