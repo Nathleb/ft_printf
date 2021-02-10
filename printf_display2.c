@@ -67,6 +67,7 @@ int	ft_display_pointer(t_flags flags, unsigned int nb, char *base)
 		ret += (!flags.left) ? padnbr(flags, flags.width) : 0;
 		ret += write(1, "0x", 2);
 		ret += (flags.left) ? padnbr(flags, flags.width) : 0;
+		return (ret);
 	}
 	if ((s = malloc(1)) && !(s[0] = '\0') && (s = ft_litoa_base(nb, base, s)))
 	{
