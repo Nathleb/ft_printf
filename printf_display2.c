@@ -61,6 +61,7 @@ int	ft_display_pointer(t_flags flags, unsigned int nb, char *base)
 	int prec;
 
 	ret = 0;
+	prec = flags.prec;
 	if ((s = malloc(1)) && !(s[0] = '\0') && (s = ft_litoa_base(nb, base, s)))
 	{
 		len = (int)ft_strlen(s) + 2;
