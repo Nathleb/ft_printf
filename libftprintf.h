@@ -28,7 +28,7 @@ typedef struct	s_flags
 }				t_flags;
 
 int 			ft_printf(const char *str, ...);
-int				ft_display_pointer(t_flags flags, unsigned int nb, char *base);
+int				ft_display_pointer(t_flags flags, unsigned long int nb, char *base);
 int 			ft_max(int a, int b);
 int				ft_display_unsignedint(t_flags flags, unsigned int nb, char *base);
 int				ft_display_char(t_flags flags, char c);
