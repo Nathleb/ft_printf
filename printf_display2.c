@@ -76,7 +76,7 @@ int	ft_display_pointer(t_flags flags, unsigned int nb, char *base)
 		ret += write(1, "0x", 2);
 		while (--prec >= (int)len - 2)
 			ret += write(1, "0", 1);
-		ret += write(1, s, len);
+		ret += write(1, s, len - 2);
 		ret += (flags.left) ? padnbr(flags, flags.width - ft_max(len, flags.prec)) : 0;
 		free(s);
 	}
