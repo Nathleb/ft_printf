@@ -12,15 +12,13 @@
 
 #include "libftprintf.h"
 
-int	ft_putspace(t_flags flags, int pad_size)
+int	ft_putspace(int pad_size)
 {
 	char c;
 	int ret;
 
 	ret = 0;
 	c = ' ';
-	if (flags.conv_type == '%' && flags.zero == 1)
-		c = '0';
 	while (pad_size-- > 0)
 		ret += write(1, &c, 1);
 	return (ret);
@@ -40,10 +38,10 @@ int	ft_display_string(t_flags flags, char *s)
 		flags.prec = len;
 	pad_size = flags.width - ft_min(flags.prec, len);
 	if (!flags.left)
-		ret += ft_putspace(flags, pad_size);
+		ret += ft_putspace(pad_size);
 	ret += write(1, s, ft_min(flags.prec, len));
 	if (flags.left)
-		ret += ft_putspace(flags, pad_size);
+		ret += ft_putspace(pad_size);
 	return (ret);
 }
 
@@ -57,9 +55,9 @@ int	ft_display_char(t_flags flags, char c)
 		flags.prec = 1;
 	pad_size = flags.width - ft_min(flags.prec, 1);
 	if (!flags.left)
-		ret += ft_putspace(flags, pad_size);
+		ret += ft_putspace(pad_size);
 	ret += write(1, &c, ft_min(flags.prec, 1));
 	if (flags.left)
-		ret += ft_putspace(flags, pad_size);
+		ret += ft_putspace(pad_size);
 	return (ret);
 }
