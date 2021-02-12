@@ -54,10 +54,10 @@ int	ft_display_char(t_flags flags, char c)
 	if (flags.prec == -1)
 		flags.prec = 1;
 	pad_size = flags.width - ft_min(flags.prec, 1);
-	if (flags.left)
+	if (!flags.left)
 		ret += ft_putspace(pad_size);
 	ret += write(1, &c, ft_min(flags.prec, 1));
-	if (!flags.left)
+	if (flags.left)
 		ret += ft_putspace(pad_size);
 	return (ret);
 }
