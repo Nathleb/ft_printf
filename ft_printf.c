@@ -34,6 +34,8 @@ int ft_pfdisplay(char *str, va_list ap)
 		ret += ft_display_unsignedint(flags, va_arg(ap, unsigned int),"0123456789");
 	if (flags.conv_type == 'p')
 		ret += ft_display_pointer(flags, (unsigned long int)va_arg(ap, void *),"0123456789abcdef");
+	if (flags.conv_type == 'i' || flags.conv_type == 'd')
+		ret += ft_display_int(flags, va_arg(ap, int));
 	return (ret);
 }
 

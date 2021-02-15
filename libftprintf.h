@@ -27,6 +27,7 @@ typedef struct	s_flags
 	char	conv_type;
 }				t_flags;
 
+int				ft_display_int(t_flags flags, int nb);
 int 			ft_printf(const char *str, ...);
 int				ft_display_pointer(t_flags flags, unsigned long int nb, char *base);
 int 			ft_max(int a, int b);

@@ -39,8 +39,7 @@ int	ft_display_unsignedint(t_flags flags, unsigned int nb, char *base)
 	if ((s = malloc(1)) && !(s[0] = '\0') && (s = ft_ulitoa_base(nb, base, s)))
 	{
 		len = (nb > 0 || flags.prec == -1) ? (int)ft_strlen(s) : 0;
-		flags.prec = (flags.prec == -1) ? 0 : flags.prec;
-		flags.zero = (flags.prec > 0) ? 0 : flags.zero;
+		flags.zero = (flags.prec >= 0) ? 0 : flags.zero;
 		if (!flags.left)
 			ret += padnbr(flags, flags.width - ft_max(len, flags.prec));
 		while (--prec >= (int)len)
@@ -80,5 +79,41 @@ int	ft_display_pointer(t_flags flags, unsigned long int nb, char *base)
 		ret += (flags.left) ? padnbr(flags, flags.width - ft_max(len, flags.prec)) : 0;
 		free(s);
 	}
+	return (ret);
+}
+
+int	ft_display_int(t_flags flags, int nb)
+{
+	int ret;
+	char *s;
+	int len;
+	int prec;
+
+	ret = 0;
+	if (nb < 0)
+	{
+		if ((s = malloc(1)) && !(s[0] = '\0') && (s = ft_litoa_base(nb, "0123456789", s)))
+			{
+				len = (int)ft_strlen(s) - 1;
+				flags.zero = (flags.prec >= 0) ? 0 : flags.zero;
+				if (flags.prec == -1 && flags.zero == 1 && flags.left == 0)
+				{
+					flags.prec = flags.width - 1;
+					flags.width = len;
+				}
+				prec = flags.prec;
+				if (!flags.left)
+					ret += padnbr(flags, flags.width - 1 - ft_max(len, flags.prec));
+				ret += write(1, s, 1);
+				while (--prec >= (int)len)
+					ret += write(1, "0", 1);
+				ret += write(1, s + 1, len);
+				if (flags.left)
+					ret += padnbr(flags, flags.width - 1 - ft_max(len, flags.prec));
+				free(s);
+			}
+	}
+	else
+		ret += ft_display_unsignedint(flags, (unsigned int) nb, "0123456789");
 	return (ret);
 }
