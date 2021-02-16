@@ -6,11 +6,11 @@
 #    By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 19:27:19 by nle-biha          #+#    #+#              #
-#    Updated: 2021/02/07 15:51:10 by nle-biha         ###   ########.fr        #
+#    Updated: 2021/02/16 21:38:04 by nle-biha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =	ft_printf.c printf_convert.c printf_parsing.c printf_utils.c printf_display.c printf_utils2.c printf_display2.c
+SRCS =	ft_printf.c printf_convert.c printf_parsing.c printf_utils.c printf_display.c printf_display2.c
 
 OBJS = ${SRCS:.c=.o}
 
