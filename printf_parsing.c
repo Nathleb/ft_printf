@@ -39,6 +39,7 @@ char	*parse_precision(char *str, t_flags *flags, va_list *ap)
 			flags->prec = ft_atoi(str);
 		else if (*str == '*')
 		{
+			str++;
 			flags->prec = va_arg(*ap, int);
 			if (flags->prec < 0)
 				flags->prec = -1;
