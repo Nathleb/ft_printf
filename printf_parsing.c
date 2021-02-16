@@ -21,7 +21,10 @@ char	*parse_width(char *str, t_flags *flags, va_list *ap)
 		str++;
 		flags->width = va_arg(*ap, int);
 		if (flags->width < 0)
+		{
 			flags->width *= -1;
+			flags->left = 1;
+		}
 	}
 	else
 		flags->width = -1;
