@@ -12,14 +12,16 @@
 
 #include "libftprintf.h"
 
-char	*parse_width(char *str, t_flags *flags, va_list ap)
+char	*parse_width(char *str, t_flags *flags, va_list *ap)
 {
 	if (*str >= '1' && *str <= '9')
 		flags->width = ft_atoi(str);
 	else if (*str == '*')
 	{
 		str++;
-		flags->width = va_arg(ap, int);
+		flags->width = va_arg(*ap, int);
+		if (flags->width < 0)
+			flags->width = -1;
 	}
 	else
 		flags->width = -1;
@@ -28,7 +30,7 @@ char	*parse_width(char *str, t_flags *flags, va_list ap)
 	return (str);
 }
 
-char	*parse_precision(char *str, t_flags *flags, va_list ap)
+char	*parse_precision(char *str, t_flags *flags, va_list *ap)
 {
 	if (*str == '.')
 	{
@@ -36,7 +38,11 @@ char	*parse_precision(char *str, t_flags *flags, va_list ap)
 		if (*str >= '0' && *str <= '9')
 			flags->prec = ft_atoi(str);
 		else if (*str == '*')
-			flags->prec = va_arg(ap, int);
+		{
+			flags->prec = va_arg(*ap, int);
+			if (flags->prec < 0)
+				flags->prec = -1;
+		}
 		else
 			flags->prec = 0;
 		while (*str >= '0' && *str <= '9')
@@ -60,7 +66,7 @@ char	*parse_flags(char *str, t_flags *flags)
 	return (str);
 }
 
-t_flags	printf_parse(char *str, va_list ap)
+t_flags	printf_parse(char *str, va_list *ap)
 {
 	t_flags flags;
 

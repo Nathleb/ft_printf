@@ -33,7 +33,7 @@ int				ft_display_pointer(t_flags flags, unsigned long int nb, char *base);
 int 			ft_max(int a, int b);
 int				ft_display_unsignedint(t_flags flags, unsigned int nb, char *base);
 int				ft_display_char(t_flags flags, char c);
-t_flags			printf_parse(char *str, va_list ap);
+t_flags			printf_parse(char *str, va_list *ap);
 int				ft_isin(const char *s, int c);
 int				ft_min(int a, int b);
 char			*ft_strcpy(char *dest, char *src);
