@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 01:43:03 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/16 20:55:37 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/07 16:25:31 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strcpy(char *dest, char *src)
 
 int		ft_min(int a, int b)
 {
-	if (a < b)
+	if ( a < b)
 		return (a);
 	return (b);
 }
@@ -41,13 +41,13 @@ int		ft_isin(const char *s, int c)
 	while (s[i])
 	{
 		if (s[i] == c)
-			return (1);
+		   return (1);
 		i++;
 	}
 	return (0);
 }
 
-int		ft_max(int a, int b)
+int ft_max(int a, int b)
 {
 	if (a > b)
 		return (a);
