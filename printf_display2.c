@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 20:56:22 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/16 21:35:55 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/16 21:55:30 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	ft_display_unsignedint(t_flags flags, unsigned int nb, char *base)
 	prec = flags.prec;
 	ret = 0;
 	s = malloc(1);
+	s[0] = '\0';
 	if (s != NULL && (s = ft_ulitoa_base(nb, base, s)))
 	{
 		len = (nb > 0 || flags.prec == -1) ? (int)ft_strlen(s) : 0;
@@ -65,6 +66,7 @@ int	ft_display_pointer(t_flags flags, unsigned long int nb, char *base)
 	if (nb == 0 && flags.prec == 0)
 		len = 2;
 	s = malloc(1);
+	s[0] = '\0';
 	if ((s != NULL && (s = ft_ulitoa_base(nb, base, s))))
 	{
 		len = (int)ft_strlen(s) + 2;
