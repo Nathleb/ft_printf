@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 20:56:22 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/16 21:02:30 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/16 21:35:55 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ int	ft_display_unsignedint(t_flags flags, unsigned int nb, char *base)
 
 	prec = flags.prec;
 	ret = 0;
-	if ((s = malloc(1)) && (s = ft_ulitoa_base(nb, base, s)))
+	s = malloc(1);
+	if (s != NULL && (s = ft_ulitoa_base(nb, base, s)))
 	{
 		len = (nb > 0 || flags.prec == -1) ? (int)ft_strlen(s) : 0;
 		flags.zero = (flags.prec >= 0) ? 0 : flags.zero;
@@ -60,14 +61,11 @@ int	ft_display_pointer(t_flags flags, unsigned long int nb, char *base)
 
 	ret = 0;
 	prec = flags.prec;
+	len = (int)ft_strlen(s) + 2;
 	if (nb == 0 && flags.prec == 0)
-	{
-		ret += (!flags.left) ? padnbr(flags, flags.width - 2) : 0;
-		ret += write(1, "0x", 2);
-		ret += (flags.left) ? padnbr(flags, flags.width - 2) : 0;
-		return (ret);
-	}
-	if ((s = malloc(1)) && !(s[0] = '\0') && (s = ft_ulitoa_base(nb, base, s)))
+		len = 2;
+	s = malloc(1);
+	if ((s != NULL && (s = ft_ulitoa_base(nb, base, s))))
 	{
 		len = (int)ft_strlen(s) + 2;
 		ret += (!flags.left) ? padnbr(flags, flags.width - ft_max(len, flags.prec)) : 0;
