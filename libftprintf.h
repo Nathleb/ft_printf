@@ -6,11 +6,11 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 01:44:28 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/17 19:36:37 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/17 19:38:21 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	FT_LIBFTPRINTF_H
+#ifndef FT_LIBFTPRINTF_H
 # define FT_LIBFTPRINTF_H
 # include <stdarg.h>
 # include <unistd.h>
