@@ -53,7 +53,7 @@ int	ft_display_char(t_flags flags, char c)
 	int ret;
 
 	ret = 0;
-	if (flags.prec == -1)
+	if (flags.prec == -1 || flags.prec == 0)
 		flags.prec = 1;
 	pad_size = flags.width - ft_min(flags.prec, 1);
 	if (!flags.left)
