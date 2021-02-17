@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 20:56:22 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/17 20:45:50 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/17 20:51:19 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,9 @@ int	ft_display_int(t_flags flags, int nb)
 	int		prec;
 
 	ret = 0;
-	if (nb < 0)
+	if (nb > 0)
+		ret += ft_display_ui(flags, (unsigned int)nb, DEC);
+	else
 	{
 		s = ft_calloc(1, sizeof(char));
 		if (s && (s = ft_litoa_base(nb, DEC, s)))
@@ -100,18 +102,14 @@ int	ft_display_int(t_flags flags, int nb)
 				flags.width = len;
 			}
 			prec = flags.prec;
-			if (!flags.left)
-				ret += padnbr(flags, flags.width - 1 - ft_max(len, flags.prec));
+			ret += (!flags.left) ?  padnbr(flags, flags.width - 1 - ft_max(len, flags.prec)) : 0 ;
 			ret += write(1, s, 1);
 			while (--prec >= (int)len)
 				ret += write(1, "0", 1);
 			ret += write(1, s + 1, len);
-			if (flags.left)
-				ret += padnbr(flags, flags.width - 1 - ft_max(len, flags.prec));
+			ret += (!flags.left) ?  padnbr(flags, flags.width - 1 - ft_max(len, flags.prec)) : 0 ;
 			free(s);
 		}
 	}
-	else
-		ret += ft_display_ui(flags, (unsigned int)nb, DEC);
 	return (ret);
 }
