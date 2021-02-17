@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 20:56:22 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/17 20:57:07 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/17 21:00:25 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,30 +87,27 @@ int	ft_display_int(t_flags flags, int nb)
 	int		prec;
 
 	ret = 0;
-	if (nb < 0)
+	if (nb >= 0)
+		return (ft_display_ui(flags, (unsigned int)nb, DEC));
+	s = ft_calloc(1, sizeof(char));
+	if (s && (s = ft_litoa_base(nb, DEC, s)))
 	{
-		s = ft_calloc(1, sizeof(char));
-		if (s && (s = ft_litoa_base(nb, DEC, s)))
+		len = (int)ft_strlen(s) - 1;
+		flags.zero = (flags.prec >= 0) ? 0 : flags.zero;
+		if (flags.prec == -1 && flags.zero == 1 && flags.left == 0)
 		{
-			len = (int)ft_strlen(s) - 1;
-			flags.zero = (flags.prec >= 0) ? 0 : flags.zero;
-			if (flags.prec == -1 && flags.zero == 1 && flags.left == 0)
-			{
-				flags.prec = flags.width - 1;
-				flags.width = len;
-			}
-			prec = flags.prec;
-			flags.pad_size = flags.width - 1 - ft_max(len, flags.prec);
-			ret += (!flags.left) ? padnbr(flags, flags.pad_size) : 0 ;
-			ret += write(1, s, 1);
-			while (--prec >= (int)len)
-				ret += write(1, "0", 1);
-			ret += write(1, s + 1, len);
-			ret += (flags.left) ? padnbr(flags, flags.pad_size) : 0 ;
-			free(s);
+			flags.prec = flags.width - 1;
+			flags.width = len;
 		}
+		prec = flags.prec;
+		flags.pad_size = flags.width - 1 - ft_max(len, flags.prec);
+		ret += (!flags.left) ? padnbr(flags, flags.pad_size) : 0;
+		ret += write(1, s, 1);
+		while (--prec >= (int)len)
+			ret += write(1, "0", 1);
+		ret += write(1, s + 1, len);
+		ret += (flags.left) ? padnbr(flags, flags.pad_size) : 0;
+		free(s);
 	}
-	else
-		ret += ft_display_ui(flags, (unsigned int)nb, DEC);
 	return (ret);
 }
