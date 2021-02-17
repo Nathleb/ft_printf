@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 20:56:22 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/17 20:35:56 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/17 20:41:27 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,15 @@ int	ft_display_p(t_flags flags, unsigned long int nb, char *base)
 	if (s && (s = ft_ulitoa_b(nb, base, s)))
 	{
 		len = (int)ft_strlen(s) + 2;
+		flags.padsize = flags.width - ft_max(len, flags.prec);
 		if (nb == 0 && flags.prec == 0)
 			len = 2;
-		ret += (!flags.left) ? padnbr(flags, flags.width - ft_max(len, flags.prec)) : 0;
+		ret += (!flags.left) ? padnbr(flags, flags.pad_size) : 0;
 		ret += write(1, "0x", 2);
 		while (--prec >= (int)len - 2)
 			ret += write(1, "0", 1);
 		ret += write(1, s, len - 2);
-		ret += (flags.left) ? padnbr(flags, flags.width - ft_max(len, flags.prec)) : 0;
+		ret += (flags.left) ? padnbr(flags, flags.pad_size) : 0;
 		free(s);
 	}
 	return (ret);

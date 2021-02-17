@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 01:44:28 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/17 20:07:51 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/17 20:40:26 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct	s_flags
 	int		width;
 	int		prec;
 	char	conv_type;
+	int		pad_size;
 }				t_flags;
 int				ft_display_int(t_flags flags, int nb);
 int				ft_printf(const char *str, ...);
