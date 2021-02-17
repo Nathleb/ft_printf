@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 19:57:18 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/17 19:29:47 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/17 19:37:09 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int	ft_pfdisplay(char *str, va_list *ap)
 	if (flags.conv_type == '%')
 		ret += ft_display_char(flags, '%');
 	if (flags.conv_type == 'x')
-		ret += ft_display_unsignedint(flags, va_arg(*ap, unsigned int), HE);
+		ret += ft_display_ui(flags, va_arg(*ap, unsigned int), HE);
 	if (flags.conv_type == 'X')
-		ret += ft_display_unsignedint(flags, va_arg(*ap, unsigned int), HEX);
+		ret += ft_display_ui(flags, va_arg(*ap, unsigned int), HEX);
 	if (flags.conv_type == 'u')
-		ret += ft_display_unsignedint(flags, va_arg(*ap, unsigned int), DEC);
+		ret += ft_display_ui(flags, va_arg(*ap, unsigned int), DEC);
 	if (flags.conv_type == 'p')
 		ret += ft_display_p(flags, (unsigned long int)va_arg(*ap, void *), HE);
 	if (flags.conv_type == 'i' || flags.conv_type == 'd')

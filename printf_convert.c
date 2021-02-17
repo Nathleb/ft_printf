@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 01:45:48 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/02 02:09:34 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/17 19:35:55 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*ft_litoa_base(long int nb, char *base, char *returned)
 	return (temp);
 }
 
-char    		*ft_ulitoa_base(unsigned long int nb, char *base, char *returned)
+char    *ft_ulitoa_b(unsigned long int nb, char *base, char *returned)
 {
 	unsigned long int	size;
 	char		*temp;

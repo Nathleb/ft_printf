@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 20:56:22 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/17 19:29:46 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/17 19:36:34 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	padnbr(t_flags flags, int pad_size)
 }
 
 
-int	ft_display_unsignedint(t_flags flags, unsigned int nb, char *base)
+int	ft_display_ui(t_flags flags, unsigned int nb, char *base)
 {
 	int ret;
 	char *s;
@@ -36,7 +36,7 @@ int	ft_display_unsignedint(t_flags flags, unsigned int nb, char *base)
 
 	prec = flags.prec;
 	ret = 0;
-	if ((s = malloc(1)) && !(s[0] = '\0') && (s = ft_ulitoa_base(nb, base, s)))
+	if ((s = malloc(1)) && !(s[0] = '\0') && (s = ft_ulitoa_b(nb, base, s)))
 	{
 		len = (nb > 0 || flags.prec == -1) ? (int)ft_strlen(s) : 0;
 		flags.zero = (flags.prec >= 0) ? 0 : flags.zero;
@@ -68,7 +68,7 @@ int	ft_display_p(t_flags flags, unsigned long int nb, char *base)
 		ret += (flags.left) ? padnbr(flags, flags.width - 2) : 0;
 		return (ret);
 	}
-	if ((s = malloc(1)) && !(s[0] = '\0') && (s = ft_ulitoa_base(nb, base, s)))
+	if ((s = malloc(1)) && !(s[0] = '\0') && (s = ft_ulitoa_b(nb, base, s)))
 	{
 		len = (int)ft_strlen(s) + 2;
 		ret += (!flags.left) ? padnbr(flags, flags.width - ft_max(len, flags.prec)) : 0;
@@ -114,6 +114,6 @@ int	ft_display_int(t_flags flags, int nb)
 			}
 	}
 	else
-		ret += ft_display_unsignedint(flags, (unsigned int) nb, "0123456789");
+		ret += ft_display_ui(flags, (unsigned int) nb, "0123456789");
 	return (ret);
 }
