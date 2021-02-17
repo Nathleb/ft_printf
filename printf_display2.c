@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 20:56:22 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/17 20:15:22 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/17 20:17:27 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ int	ft_display_p(t_flags flags, unsigned long int nb, char *base)
 		ret += (flags.left) ? padnbr(flags, flags.width - 2) : 0;
 		return (ret);
 	}
-	if ((s = malloc(1)) && !(s[0] = '\0') && (s = ft_ulitoa_b(nb, base, s)))
+	s = ft_calloc(1, sizeof(char));
+	if (s && (s = ft_ulitoa_b(nb, base, s)))
 	{
 		len = (int)ft_strlen(s) + 2;
 		ret += (!flags.left) ? padnbr(flags, flags.width - ft_max(len, flags.prec)) : 0;
@@ -92,7 +93,8 @@ int	ft_display_int(t_flags flags, int nb)
 	ret = 0;
 	if (nb < 0)
 	{
-		if ((s = malloc(1)) && !(s[0] = '\0') && (s = ft_litoa_base(nb, DEC, s)))
+		s = ft_calloc(1, sizeof(char));
+		if (s && (s = ft_litoa_base(nb, DEC, s)))
 		{
 			len = (int)ft_strlen(s) - 1;
 			flags.zero = (flags.prec >= 0) ? 0 : flags.zero;
