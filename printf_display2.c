@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf_display.c                                   :+:      :+:    :+:   */
+/*   printf_display2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 20:56:22 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/07 17:04:09 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/17 19:29:46 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	ft_display_unsignedint(t_flags flags, unsigned int nb, char *base)
 	return (ret);
 }
 
-int	ft_display_pointer(t_flags flags, unsigned long int nb, char *base)
+int	ft_display_p(t_flags flags, unsigned long int nb, char *base)
 {
 	int ret;
 	char *s;

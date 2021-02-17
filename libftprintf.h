@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 01:44:28 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/07 16:26:52 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/17 19:29:28 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include "libft/libft.h"
+# define HEX "0123456789ABCDEF"
+# define HE "0123456789abcdef"
+# define DEC "0123456789"
+# define CONV "cspdiuxX%"
 typedef int t_bool;
 typedef struct	s_flags
 {
@@ -29,7 +33,7 @@ typedef struct	s_flags
 
 int				ft_display_int(t_flags flags, int nb);
 int 			ft_printf(const char *str, ...);
-int				ft_display_pointer(t_flags flags, unsigned long int nb, char *base);
+int				ft_display_p(t_flags flags, unsigned long int nb, char *base);
 int 			ft_max(int a, int b);
 int				ft_display_unsignedint(t_flags flags, unsigned int nb, char *base);
 int				ft_display_char(t_flags flags, char c);
