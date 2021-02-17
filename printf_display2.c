@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 20:56:22 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/17 20:52:33 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/17 20:53:54 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,7 @@ int	ft_display_int(t_flags flags, int nb)
 	int		prec;
 
 	ret = 0;
-	if (nb >= 0)
-		ret += ft_display_ui(flags, (unsigned int)nb, DEC);
-	else
+	if (nb < 0)
 	{
 		s = ft_calloc(1, sizeof(char));
 		if (s && (s = ft_litoa_base(nb, DEC, s)))
@@ -111,5 +109,7 @@ int	ft_display_int(t_flags flags, int nb)
 			free(s);
 		}
 	}
+	else
+		ret += ft_display_ui(flags, (unsigned int)nb, DEC);
 	return (ret);
 }
