@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 20:56:22 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/17 21:02:47 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/17 21:06:50 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,18 +93,15 @@ int	ft_display_int(t_flags flags, int nb)
 	{
 		flags.zero = (flags.prec >= 0) ? 0 : flags.zero;
 		if (flags.prec == -1 && flags.zero == 1 && flags.left == 0)
-		{
 			flags.prec = flags.width - 1;
-			flags.width = (int)ft_strlen(s) - 1;
-		}
 		prec = flags.prec;
-		flags.pad_size = flags.width - 1 - ft_max((int)ft_strlen(s) - 1, flags.prec);
-		ret += (!flags.left) ? padnbr(flags, flags.pad_size) : 0;
+		flags.pad_size = flags.width - ft_max((int)ft_strlen(s) - 1, flags.prec);
+		ret += (!flags.left) ? padnbr(flags, flags.pad_size - 1) : 0;
 		ret += write(1, s, 1);
 		while (--prec >= (int)ft_strlen(s) - 1)
 			ret += write(1, "0", 1);
 		ret += write(1, s + 1, (int)ft_strlen(s) - 1);
-		ret += (flags.left) ? padnbr(flags, flags.pad_size) : 0;
+		ret += (flags.left) ? padnbr(flags, flags.pad_size - 1) : 0;
 		free(s);
 	}
 	return (ret);
