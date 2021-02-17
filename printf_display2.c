@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 20:56:22 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/17 20:41:27 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/17 20:43:25 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	ft_display_p(t_flags flags, unsigned long int nb, char *base)
 	if (s && (s = ft_ulitoa_b(nb, base, s)))
 	{
 		len = (int)ft_strlen(s) + 2;
-		flags.padsize = flags.width - ft_max(len, flags.prec);
+		flags.pad_size = flags.width - ft_max(len, flags.prec);
 		if (nb == 0 && flags.prec == 0)
 			len = 2;
 		ret += (!flags.left) ? padnbr(flags, flags.pad_size) : 0;
