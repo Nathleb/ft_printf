@@ -6,16 +6,16 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 19:57:18 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/07 01:23:17 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/17 19:37:09 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int ft_pfdisplay(char *str, va_list *ap)
+int	ft_pfdisplay(char *str, va_list *ap)
 {
-	int ret;
-	t_flags flags;
+	int		ret;
+	t_flags	flags;
 
 	ret = 0;
 	flags = printf_parse(str, ap);
@@ -27,13 +27,13 @@ int ft_pfdisplay(char *str, va_list *ap)
 	if (flags.conv_type == '%')
 		ret += ft_display_char(flags, '%');
 	if (flags.conv_type == 'x')
-		ret += ft_display_unsignedint(flags, va_arg(*ap, unsigned int),"0123456789abcdef");
-	if ( flags.conv_type == 'X')
-		ret += ft_display_unsignedint(flags, va_arg(*ap, unsigned int),"0123456789ABCDEF");
+		ret += ft_display_ui(flags, va_arg(*ap, unsigned int), HE);
+	if (flags.conv_type == 'X')
+		ret += ft_display_ui(flags, va_arg(*ap, unsigned int), HEX);
 	if (flags.conv_type == 'u')
-		ret += ft_display_unsignedint(flags, va_arg(*ap, unsigned int),"0123456789");
+		ret += ft_display_ui(flags, va_arg(*ap, unsigned int), DEC);
 	if (flags.conv_type == 'p')
-		ret += ft_display_pointer(flags, (unsigned long int)va_arg(*ap, void *),"0123456789abcdef");
+		ret += ft_display_p(flags, (unsigned long int)va_arg(*ap, void *), HE);
 	if (flags.conv_type == 'i' || flags.conv_type == 'd')
 		ret += ft_display_int(flags, va_arg(*ap, int));
 	return (ret);
@@ -56,9 +56,9 @@ int	ft_printf(const char *str, ...)
 		if (str[i] == '%')
 		{
 			j = ++i;
-			while (str[i] && !ft_isin("cspdiuxX%", str[i]))
+			while (str[i] && !ft_isin(CONV, str[i]))
 				i++;
-			if (ft_isin("cspdiuxX%", str[i]))
+			if (ft_isin(CONV, str[i]))
 				ret += ft_pfdisplay(ft_substr(str, j, ++i - j), &ap);
 		}
 	}

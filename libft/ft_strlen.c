@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 16:23:03 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/07 16:23:58 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/17 20:08:42 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,3 @@ size_t	ft_strlen(const char *str)
 		count++;
 	return (count);
 }
-

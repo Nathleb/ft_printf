@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 20:56:22 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/07 17:04:09 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/17 19:46:48 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_putspace(t_flags flags, int pad_size)
 {
-	char c;
-	int ret;
+	char	c;
+	int		ret;
 
 	ret = 0;
 	c = ' ';
@@ -28,9 +28,9 @@ int	ft_putspace(t_flags flags, int pad_size)
 
 int	ft_display_string(t_flags flags, char *s)
 {
-	int pad_size;
-	int ret;
-	unsigned int len;
+	int				pad_size;
+	int				ret;
+	unsigned int	len;
 
 	ret = 0;
 	if (!s)
