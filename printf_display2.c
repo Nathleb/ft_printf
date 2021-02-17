@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 20:56:22 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/17 20:53:54 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/17 20:55:04 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int	ft_display_int(t_flags flags, int nb)
 			while (--prec >= (int)len)
 				ret += write(1, "0", 1);
 			ret += write(1, s + 1, len);
-			ret += (!flags.left) ? padnbr(flags, flags.width - 1 - ft_max(len, flags.prec)) : 0 ;
+			ret += (flags.left) ? padnbr(flags, flags.width - 1 - ft_max(len, flags.prec)) : 0 ;
 			free(s);
 		}
 	}
