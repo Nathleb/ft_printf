@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 20:56:22 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/17 19:36:34 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/17 20:07:14 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int	ft_display_int(t_flags flags, int nb)
 	ret = 0;
 	if (nb < 0)
 	{
-		if ((s = malloc(1)) && !(s[0] = '\0') && (s = ft_litoa_base(nb, "0123456789", s)))
+		if ((s = malloc(1)) && !(s[0] = '\0') && (s = ft_litoa_base(nb, DEC, s)))
 			{
 				len = (int)ft_strlen(s) - 1;
 				flags.zero = (flags.prec >= 0) ? 0 : flags.zero;
@@ -114,6 +114,6 @@ int	ft_display_int(t_flags flags, int nb)
 			}
 	}
 	else
-		ret += ft_display_ui(flags, (unsigned int) nb, "0123456789");
+		ret += ft_display_ui(flags, (unsigned int) nb, DEC);
 	return (ret);
 }

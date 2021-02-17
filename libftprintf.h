@@ -6,7 +6,7 @@
 /*   By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 01:44:28 by nle-biha          #+#    #+#             */
-/*   Updated: 2021/02/17 19:38:21 by nle-biha         ###   ########.fr       */
+/*   Updated: 2021/02/17 20:07:51 by nle-biha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct	s_flags
 int				ft_display_int(t_flags flags, int nb);
 int				ft_printf(const char *str, ...);
 int				ft_display_p(t_flags flags, unsigned long int nb, char *base);
+void			*ft_calloc(size_t nmemb, size_t size);
 int				ft_max(int a, int b);
 int				ft_display_ui(t_flags flags, unsigned int nb, char *base);
 int				ft_display_char(t_flags flags, char c);
