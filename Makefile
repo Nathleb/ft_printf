@@ -6,7 +6,7 @@
 #    By: nle-biha <nle-biha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/06 19:27:19 by nle-biha          #+#    #+#              #
-#    Updated: 2021/02/16 22:07:36 by nle-biha         ###   ########.fr        #
+#    Updated: 2021/02/23 16:04:08 by nle-biha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ OBJS = $(SRCS:.c=.o)
 
 ${NAME}: ${OBJS}
 	@make all -C libft
-	ar rcs ${NAME} ${OBJS} libft/ft_*.o
+	cp libft/libft.a ${NAME}
+	ar rcs ${NAME} ${OBJS}
 	ranlib ${NAME}
 
 
